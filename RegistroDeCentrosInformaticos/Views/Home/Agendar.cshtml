@@ -38,9 +38,9 @@
                     <label for="idcomputo" class="fw-bold">Aula:</span></label>
                     @Html.TextBox("idcomputo", "", new { @class = "form-control" })
                 </div>
-                <div class="container-fluid form-group m-3">
+                <div class="container-fluid form-select m-3">
                     <label for="idestado" class="fw-bold">Estado:</span></label>
-                    @Html.DropDownList("idestado", ViewData["listaDeEstado"] as SelectList, "--Seleccione el estado--", new { @class = "form-control" })
+                    @Html.TextBox("idestado", "", new { @class = "form-control" })
                 </div>
                 <div class="container-fluid form-group m-3">
                     <label for="hora_entrada" class="fw-bold">Entrada:</span></label>
@@ -55,11 +55,11 @@
             <h5 class="fw-bold">OBSERVACIONES ADICIONALES</h5>
             <div class="container-fluid form-group m-3 text-center justify-content-center align-content-center">
                 <label for="comentario" class="fw-bold"></span></label>
-                @Html.TextBox("comentario", "", new { @class = "form-control" })
+                @Html.TextArea("comentario", "", new { @class = "form-control" })
             </div>
             <div class="d-flex justify-content-end">
                 <!-- Utiliza un botón de tipo "button" para evitar envíos de formulario -->
-                <input type="submit" class="btn rounded-4 text-light px-4" style="background-color: #781113;" value="Guardar" />
+                <input type="submit" class="btn rounded-4 text-light px-4 " style="background-color: #781113;" value="Guardar" />
             </div>
         </form>
     </section>

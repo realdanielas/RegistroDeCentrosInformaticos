@@ -28,6 +28,10 @@ namespace RegistroDeCentrosInformaticos.Controllers
 
         public IActionResult Agendar()
         {
+            //var listaDeEstado = (from e in _prestauniccDbContext.estadoscc
+            //                     select e).ToList();
+            //ViewData["listaDeEstado"] = new SelectList(listaDeEstado, "idestado", "descripcion");
+
             var Agendar = (from u in _prestauniccDbContext.usuarios
                                    join p in _prestauniccDbContext.prestamos on u.carnet equals p.carnet
                                   select new
@@ -41,11 +45,6 @@ namespace RegistroDeCentrosInformaticos.Controllers
                                     p.hora_salida,
                                     p.comentario
                                   }).ToList();
-
-            //var listaDeEstado = (from e in _prestauniccDbContext.estadoscc
-            //                     select e).ToList();
-            //ViewData["listaDeEstado"] = new SelectList(listaDeEstado, "descripcion");
-
             ViewBag.usuarios = Agendar;
             return View();
         }

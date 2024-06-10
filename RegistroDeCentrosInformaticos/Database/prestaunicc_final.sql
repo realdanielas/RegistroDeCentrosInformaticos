@@ -139,4 +139,20 @@ CREATE TABLE dbo.prestamos (
 );
 GO
 
+--PRUEBAS
+select * from usuarios;
+
+--INSERTING DATA INTO estadoscc
+SET IDENTITY_INSERT estadoscc ON
+INSERT INTO estadoscc(idestado, descripcion) VALUES (1, 'Aula vacía.');
+INSERT INTO estadoscc(idestado, descripcion) VALUES (2, 'Aula ocupada.');
+SET IDENTITY_INSERT estadoscc OFF
+
+SELECT * FROM estadoscc;
+
+select u.nombres, u.apellidos, u.carnet, p.idcomputo, p.idestado, p.hora_entrada, p.hora_salida, p.comentario
+FROM usuarios AS u JOIN prestamos AS p
+ON u.carnet = p.carnet
+;
+
 
