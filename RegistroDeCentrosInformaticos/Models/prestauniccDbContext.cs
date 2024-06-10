@@ -14,7 +14,7 @@ namespace RegistroDeCentrosInformaticos.Models
         public DbSet<Carreras> carreras { get; set; }
         public DbSet<Alu_datos> alumnoDatos { get; set; }
         public DbSet<Computo> computo { get; set; }
-        public DbSet<Estadoscc> estadosCentroComputo { get; set; }
+        public DbSet<Estadoscc> estadoscc { get; set; }
         public DbSet<Prestamos> prestamos { get; set; }
     }
 }

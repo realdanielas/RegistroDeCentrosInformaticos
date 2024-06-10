@@ -11,50 +11,58 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Agendar Prestamo</h2>
-    <form asp-action="AgendarUsuario">
-        <input type="hidden" name="hour" value="@ViewBag.Hour" />
-        <input type="hidden" name="day" value="@ViewBag.Day" />
-
-        <div class="form-group">
-            <label for="nombres" class="fw-bold">Nombres(s):</span></label>
-            @Html.TextBox("nombres", "", new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label for="apellidos" class="fw-bold">Apellido(s):</span></label>
-            @Html.TextBox("apellidos", "", new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label for="carnet" class="fw-bold">Carnet:</span></label>
-            @Html.TextBox("carnet", "", new { @class = "form-control" })
-        </div>
-
-        <div class="form-group">
-            <label for="idcomputo" class="fw-bold">Aula:</span></label>
-            @Html.TextBox("idcomputo", "", new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label for="idestado" class="fw-bold">Estado:</span></label>
-            @Html.TextBox("idestado", "", new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label for="hora_entrada" class="fw-bold">Entrada:</span></label>
-            @Html.TextBox("hora_entrada", "", new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label for="hora_salida" class="fw-bold">Salida:</span></label>
-            @Html.TextBox("hora_salida", "", new { @class = "form-control" })
-        </div>
-
-        <div class="form-group">
-            <label for="comentario" class="fw-bold">Comentarios adicionales:</span></label>
-            @Html.TextBox("comentario", "", new { @class = "form-control" })
-        </div>
-        <div class="d-flex justify-content-end">
-            <!-- Utiliza un botón de tipo "button" para evitar envíos de formulario -->
-            <input type="submit" class="btn btn-primary btn-lg" style="background-color: #781113;  padding-bottom" value="Guardar" />
-        </div>
-    </form>
+    <section class="container-fluid pt-4" style="font-family: 'Montserrat', sans-serif;">
+        <h5 class="border-start border-4 border-danger ps-3 mb-4 fw-bold">AGENDAR SOLICITANTE</h5>
+        <form asp-action="Agendar" class="pb-5 pt-4 px-5 rounded-3" style="background-color: #fff;" enctype="multipart/form-data">
+            @*<input type="hidden" name="hour" value="@ViewBag.Hour" />
+            <input type="hidden" name="day" value="@ViewBag.Day" /> *@
+            <h5 class="fw-bold pt-2">DATOS DEL SOLICITANTE</h5>
+            <div class="d-flex">
+                <div class="container-fluid form-group m-3">
+                    <label for="nombres" class="fw-bold">Nombres(s):</span></label>
+                    @Html.TextBox("nombres", "", new { @class = "form-control" })
+                </div>
+                <div class="container-fluid form-group m-3">
+                    <label for="apellidos" class="fw-bold">Apellido(s):</span></label>
+                    @Html.TextBox("apellidos", "", new { @class = "form-control" })
+                </div>
+                <div class="container-fluid form-group m-3">
+                    <label for="carnet" class="fw-bold">Carnet:</span></label>
+                    @Html.TextBox("carnet", "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="border-bottom border-secondary-subtle my-3"></div>
+            <h5 class="fw-bold">DATOS DE CENTRO INFORMÁTICO</h5>
+            <div class="d-flex">
+                <div class="container-fluid form-group m-3">
+                    <label for="idcomputo" class="fw-bold">Aula:</span></label>
+                    @Html.TextBox("idcomputo", "", new { @class = "form-control" })
+                </div>
+                <div class="container-fluid form-group m-3">
+                    <label for="idestado" class="fw-bold">Estado:</span></label>
+                    @Html.DropDownList("idestado", ViewData["listaDeEstado"] as SelectList, "--Seleccione el estado--", new { @class = "form-control" })
+                </div>
+                <div class="container-fluid form-group m-3">
+                    <label for="hora_entrada" class="fw-bold">Entrada:</span></label>
+                    @Html.TextBox("hora_entrada", "", new { @class = "form-control" })
+                </div>
+                <div class="container-fluid form-group m-3">
+                    <label for="hora_salida" class="fw-bold">Salida:</span></label>
+                    @Html.TextBox("hora_salida", "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="border-bottom border-secondary-subtle my-3"></div>
+            <h5 class="fw-bold">OBSERVACIONES ADICIONALES</h5>
+            <div class="container-fluid form-group m-3 text-center justify-content-center align-content-center">
+                <label for="comentario" class="fw-bold"></span></label>
+                @Html.TextBox("comentario", "", new { @class = "form-control" })
+            </div>
+            <div class="d-flex justify-content-end">
+                <!-- Utiliza un botón de tipo "button" para evitar envíos de formulario -->
+                <input type="submit" class="btn rounded-4 text-light px-4" style="background-color: #781113;" value="Guardar" />
+            </div>
+        </form>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

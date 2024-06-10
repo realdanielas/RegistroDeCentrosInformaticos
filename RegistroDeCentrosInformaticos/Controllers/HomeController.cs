@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using RegistroDeCentrosInformaticos.Models;
 using System.Diagnostics;
 using System.Text.Json;
@@ -27,7 +28,7 @@ namespace RegistroDeCentrosInformaticos.Controllers
 
         public IActionResult Agendar()
         {
-            var AgendarUsuario = (from u in _prestauniccDbContext.usuarios
+            var Agendar = (from u in _prestauniccDbContext.usuarios
                                    join p in _prestauniccDbContext.prestamos on u.carnet equals p.carnet
                                   select new
                                   {
@@ -40,11 +41,15 @@ namespace RegistroDeCentrosInformaticos.Controllers
                                     p.hora_salida,
                                     p.comentario
                                   }).ToList();
-            ViewBag.usuarios = AgendarUsuario;
 
+            //var listaDeEstado = (from e in _prestauniccDbContext.estadoscc
+            //                     select e).ToList();
+            //ViewData["listaDeEstado"] = new SelectList(listaDeEstado, "descripcion");
+
+            ViewBag.usuarios = Agendar;
             return View();
         }
-
+        
         public IActionResult AjustesPerfil()
         {
             var datosUsuario = JsonSerializer.Deserialize<Usuarios>(HttpContext.Session.GetString("user"));
